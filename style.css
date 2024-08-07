@@ -1,0 +1,244 @@
+/*On importe une police à partir d'un lien sur google fonts(@import url(...);)*/
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+
+/*On va chercher la police "DM Serif" que nous avons télécharger(@font-face)(src: url(...):) et on lui donne un nom d'appel pour que quand on le nomme elle réponde(font-family: DMSerif;)*/
+@font-face {
+    font-family: DMSerif;
+    src: url(./assets/fonts/DMSerifDisplay-Regular.ttf);
+}
+
+/*L'étoile permet de faire appliquer une propriéter à tous le monde*/
+* {
+    margin: 0;
+    padding: 0;
+    border: 2px red;
+}
+
+body {
+    font-family: "DMSerif", Verdana;
+
+    /*background: url(./assets/img/bg.jpg) center/cover; rajoute un fond (background) avec une image (url(...)) que l'on centre en gardant la taille(center/cover)*/
+    background: url(./assets/img/bg.jpg) center/cover;
+    /*VH = 100% de la taille de l'écran (viewport height)min-height c'est pour définir la taille minimum mais tu peux plus*/
+    min-height: 100vh;
+}
+
+h1 {
+    /*text-transform: uppercase; fait en sorte que le texte séléctionner se transforme(text-transform) en capitale de A à Z (uppercase)*/
+    text-transform: uppercase;
+
+    /*letter-spacing: 3px; met un espace entre toutes les lettres (letter-spacing) de 3 pixels (3px)*/
+    letter-spacing: 3px;
+
+    /*text-align: center; aligne le texte (text-align) au centre de l'écran (center)*/
+    text-align: center;
+
+    /*Les polices doivent être en rem (rem c'est l'uniter de taille utiliser en CSS)*/
+    /*font-size: 2.5rem; met la taille de la police (font-size) à 2.5rem (2.5rem)*/
+    font-size: 10vw;
+    /*Il existe aussi une manière de mettre responsive un texte c'est l'unité de mesure vw qui augmente et diminue la taille d'un texte en gardant un certain ratio*/
+
+    /*text-shadow:3px 3px 8px gainsboro; ajoute une ombre(text-shadow) avec une certaine direction et un certain floux (3px 3px 8px) et de couleur blanche crème(gainboro)*/
+    text-shadow: 3px 3px 8px gainsboro;
+
+    /*color: rgb(255, 255, 255); colore le texte (color) en blanc (rgb(255,255,255)on peut aussi mettre juste "white")*/
+    color: rgb(255, 255, 255);
+
+    /*font-family: "Oswald", sans-serif; mets le texte àla police que nous avons importé au début(font-family) qui est ("Oswald") et si cette dernière ne fonctionne pas une police de secours que nous avons selectionné et qui est déja présente dans VS Code est là (sans-serif)*/
+    font-family: "Oswald", sans-serif;
+}
+
+main {
+
+    /*min-height: 500px; définit une hauteur minimum de 500 pixels à la flexbox*/
+    min-height: 500px;
+
+    /*width: 90%; Met la largeur de la Flexbox à 90%*/
+    width: 90%;
+
+    /*ajout un fond (background:)de couleur (rgba(...,...,..., .   ) à la flexbox(pour choisir la couleur cliquer sur le carré de couleur une palette va s'afficher */
+    background: rgba(201, 244, 201, 0.719);
+
+    /*margin: 0 auto; première valeur haut/bas, deuxième valeurs droite/gauche ,centre la Flexbox avec 5% de vide de chaque coté*/
+    margin: 0 auto;
+
+    /*border: 2px solid greenyellow; rajoute une bordure de 2pixels solide et pas invisible de couleur*/
+    border: 2px solid greenyellow;
+
+    /*border-radius: 20px;arrondie la bordure de 20pixels de rayon ou diamètre jsp*/
+    border-radius: 20px 20px 0 0;
+    /*on peut aussi modifier les angles un par un en faisants comme ceci: border-radius: 20px 20px 0 0; la première valeur est celle de l'angle droit haut la deuxième pour l'angle gauche haut et le même ordre pour le bas*/
+
+    /*box-shadow) créer une ombre pour la box pour les réglages mettre au début(0 0 0 black) puis aller dans la console sur le site pour tester le sens de l'ombre et son intensité de flou recopier les valleur dans VS code et pour la couleur cliquer sur le carré de couleur noir et on peut la changer*/
+    box-shadow: 0 0 20px 4px greenyellow;
+    /*perso pour l'intensité du flou et le sens de flou je reprend ceux du titre pour avoir un peu de cohérence et pour la couleur je prends celle de la bordure mais pour le test je vais faire un essaie néon*/
+
+    /*décole le texte à l'intérieur de 15px partout en théorie car il y a déja des atribu donnés de base*/
+    padding: 15px;
+}
+
+/*Définir la marge de tous les titre h2 à 0*/
+h2 {
+    margin: 0;
+    text-align: center;
+}
+
+/*FlexBox + Grid*/
+/*tout les élément de cette balise seront appliqué à toutes les div flexbox*/
+.flexbox,
+.grid,
+.absolute {
+    /*Mettre une bordure autour de des boites flexbox, le "solid" met une ligne pleine et pas des pointillets*/
+    border: 2px solid lightgreen;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    min-height: 150px;
+}
+
+/*Sert à répartir équitablement des éléments sur la pages*/
+
+.flexbox ul {
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.flexbox li {
+    list-style: none;
+    height: 160px;
+    width: 160px;
+    margin: 10px;
+    background: rgb(94, 181, 132);
+
+    /*centrer un unique élément verticalement et horizontalement dans un list*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+/*GRID*/
+.grid-container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.grid img {
+    width: 80%;
+    margin: 20px auto;
+    display: block;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+        "i1 i2"
+        "ta ta"
+        "vi bt";
+}
+
+input,
+textarea {
+    margin: 5px;
+    border: 1px solid darkgreen;
+    padding: 10px;
+    font-size: 1.1rem;
+    font-family: DNSerif;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+textarea {
+    grid-area: ta;
+    height: 40px;
+    resize: none;
+}
+
+#btn-submit {
+    grid-area: bt;
+    cursor: pointer;
+    background: rgb(199, 234, 147);
+    transition: 0.2s;
+}
+
+#btn-submit:hover {
+    background: rgb(92, 121, 52);
+    color: white;
+}
+
+/*Absolute*/
+/*Il faut mettre une position relative au parents pour contraindre l'élément absolute dans ses frontière, sans élément relative de base l'élément en absolute l'est par raport au body*/
+.absolute {
+    position: relative;
+}
+
+#circle1 {
+    height: 80px;
+    width: 80px;
+    background: rgb(163, 255, 195);
+    position: absolute;
+    border-radius: 150px;
+    top: -20px;
+    right: -20px;
+    transition: 0.2s;
+}
+
+#circle2 {
+    height: 40px;
+    width: 40px;
+    border-radius: 1500px;
+    background: cyan;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100px;
+}
+
+/*Responsive*/
+
+@media screen and (max-width: 935px) {
+    .grid-container {
+        display: block;
+    }
+    .grid-container img {
+        width: 40%;
+    }
+}
+@media screen and (max-width: 700px) {
+    .flexbox li {
+        height: 100px;
+        width: 100px;
+        font-size: 0.8rem;
+    }
+    form {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: 
+        "i1"
+        "i2"
+        "ta"
+        "bt";
+    }
+    .flexbox ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    input, textarea {
+        font-size: 0.8rem;
+    }
+    #circle1 {
+        height: 20px;
+        width: 20px;
+        top: -10px;
+        right: -10px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    input, textarea {
+        font-size: 0.4rem;
+    }
+}
